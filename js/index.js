@@ -21,7 +21,9 @@ humanChoices.addEventListener("click", (e) => {
     const value = target.classList.value;
 
     const userChoice = document.querySelector(".user-choice");
+    const botChoice = document.querySelector(".bot-choice");
 
+    const computerChoice = getComputerChoice();
     let yourChoice = "";
 
     switch(value){
@@ -38,6 +40,6 @@ humanChoices.addEventListener("click", (e) => {
             userChoice.textContent = yourChoice;
     }
 
-    const computerChoice = getComputerChoice();
+    botChoice.textContent = computerChoice;
 
 });
