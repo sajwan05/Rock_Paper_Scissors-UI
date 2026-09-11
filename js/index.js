@@ -45,7 +45,12 @@ humanChoices.addEventListener("click", (e) => {
 
     botChoice.textContent = computerChoice;
 
-    playRound(yourChoice, computerChoice);
+    if(yourScore < 5 && computerScore < 5){
+        playRound(yourChoice, computerChoice);
+    }
+
+
+    
 
 });
 
@@ -76,3 +81,4 @@ function playRound(humanChoice, computerChoice){
         botScore.textContent = `Bot: ${computerScore}`;
     }
 }
+
