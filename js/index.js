@@ -1,9 +1,11 @@
 console.log("Javascript is connected!");
 
 const humanChoices = document.querySelector(".human-choices");
-const result = document.querySelector(".result");
-const computerScore = 0;
-const yourScore = 0;
+const output = document.querySelector(".result > .output");
+const humanScore = document.querySelector(".humanScore");
+const botScore = document.querySelector(".computerScore");
+let computerScore = 0;
+let yourScore = 0;
 
 
 // to get bot Choice 
@@ -17,6 +19,7 @@ function getComputerChoice(){
 }
 
 humanChoices.addEventListener("click", (e) => {
+
     const target = e.target;
     const value = target.classList.value;
 
@@ -42,4 +45,33 @@ humanChoices.addEventListener("click", (e) => {
 
     botChoice.textContent = computerChoice;
 
+    playRound(yourChoice, computerChoice);
+
 });
+
+function playRound(humanChoice, computerChoice){
+    if( (humanChoice === "rock" && computerChoice === "scissors") ||
+        (humanChoice === "paper" && computerChoice === "rock" ) ||
+        (humanChoice === "scissors" && computerChoice === "paper")){
+            yourScore++;
+            output.textContent = `yourChoice: ${humanChoice} beats botChoice: ${computerChoice}`;
+            
+            humanScore.textContent = `You: ${yourScore}`;
+            botScore.textContent = `Bot: ${computerScore}`;
+    }else if ( (humanChoice === "rock" && computerChoice === "paper") ||
+        (humanChoice === "paper" && computerChoice === "scissors" ) ||
+        (humanChoice === "scissors" && computerChoice === "rock")){
+            computerScore++;
+            output.textContent = `yourChoice: ${humanChoice} lost by botChoice: ${computerChoice}`;
+            
+            humanScore.textContent = `You: ${yourScore}`;
+            botScore.textContent = `Bot: ${computerScore}`;
+    }else {
+        computerScore++;
+        yourScore++;
+
+        output.textContent = `yourChoice: ${humanChoice} tied botChoice: ${computerChoice}`;
+        humanScore.textContent = `You: ${yourScore}`;
+        botScore.textContent = `Bot: ${computerScore}`;
+    }
+}
