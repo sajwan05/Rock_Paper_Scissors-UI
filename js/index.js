@@ -55,7 +55,7 @@ function playRound(humanChoice, computerChoice){
         (humanChoice === "scissors" && computerChoice === "paper")){
             yourScore++;
             output.textContent = `yourChoice: ${humanChoice} beats botChoice: ${computerChoice}`;
-            
+            output.style.color = "#008000"
             humanScore.textContent = `You: ${yourScore}`;
             botScore.textContent = `Bot: ${computerScore}`;
     }else if ( (humanChoice === "rock" && computerChoice === "paper") ||
@@ -63,7 +63,7 @@ function playRound(humanChoice, computerChoice){
         (humanChoice === "scissors" && computerChoice === "rock")){
             computerScore++;
             output.textContent = `yourChoice: ${humanChoice} lost by botChoice: ${computerChoice}`;
-            
+            output.style.color = "#800000"
             humanScore.textContent = `You: ${yourScore}`;
             botScore.textContent = `Bot: ${computerScore}`;
     }else {
@@ -71,6 +71,7 @@ function playRound(humanChoice, computerChoice){
         yourScore++;
 
         output.textContent = `yourChoice: ${humanChoice} tied botChoice: ${computerChoice}`;
+        output.style.color = "#808080";
         humanScore.textContent = `You: ${yourScore}`;
         botScore.textContent = `Bot: ${computerScore}`;
     }
